@@ -2,18 +2,22 @@ import { sql } from '@vercel/postgres'
 
 export async function seed() {
   const createTable = await sql`
-    CREATE TABLE IF NOT EXISTS users (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      email VARCHAR(255) UNIQUE NOT NULL,
-      image VARCHAR(255),
-      "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    CREATE TABLE IF NOT EXISTS answers (
+      studentId INT NOT NULL,
+      passageId INT NOT NULL,
+      order INT NOT NULL,
+      question1 INT NOT NULL,
+      question2 INT NOT NULL,
+      question3 INT NOT NULL,
+      question4 INT NOT NULL,
+      question5 INT NOT NULL,
+      (studentId, passageId) PRIMARY KEY
     );
     `
 
-  console.log(`Created "users" table`)
+  console.log(`Created "answers" table`)
 
-  const users = await Promise.all([
+  /*const users = await Promise.all([
     sql`
           INSERT INTO users (name, email, image)
           VALUES ('Guillermo Rauch', 'rauchg@vercel.com', 'https://images.ctfassets.net/e5382hct74si/2P1iOve0LZJRZWUzfXpi9r/9d4d27765764fb1ad7379d7cbe5f1043/ucxb4lHy_400x400.jpg')
@@ -30,10 +34,10 @@ export async function seed() {
           ON CONFLICT (email) DO NOTHING;
       `,
   ])
-  console.log(`Seeded ${users.length} users`)
+  console.log(`Seeded ${users.length} users`)*/
 
   return {
     createTable,
-    users,
+    /*users,*/
   }
 }
