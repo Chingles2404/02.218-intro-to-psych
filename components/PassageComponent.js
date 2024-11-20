@@ -1,0 +1,59 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
+const PassageComponent = ({ passage, onComplete, group }) => {
+  const timeLimit = 5; // 2 mins
+  const [timeLeft, setTimeLeft] = useState(timeLimit);
+
+  useEffect(() => {
+    if (group === "group-1" && timeLeft === 0) {
+      onComplete();
+    }
+
+    if (group === "group-1") {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [timeLeft, group]);
+
+  return (
+    <div className="p-4 h-screen flex items-center justify-center">
+      <div className="max-w-[600px]">
+        {" "}
+        <div className="flex flex-row justify-between items-end">
+          <h1 className="text-lg font-bold">Read the Passage</h1>
+          {group === "group-1" && (
+            <div
+              className="radial-progress"
+              style={{
+                "--value": (timeLeft / timeLimit) * 100,
+                "--size": "4rem",
+                "--thickness": "0.5rem",
+              }}
+              role="progressbar"
+            >
+              {timeLeft}s
+            </div>
+          )}
+        </div>
+        <div className="p-5 my-5 rounded-md bg-gray-300 w-full">
+          <p>{passage}</p>
+        </div>
+        {group === "group-2" && (
+          <div className="text-center">
+            <button
+              type="button"
+              className="btn btn-primary mt-4"
+              onClick={onComplete}
+            >
+              Proceed
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default PassageComponent;
