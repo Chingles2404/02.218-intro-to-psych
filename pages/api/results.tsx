@@ -20,7 +20,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       answers: { [key: string]: number };
     }> = JSON.parse(results);
 
-    await addStudent(studentId, groupNo);
+    try {
+      await addStudent(studentId, groupNo);
+    } catch (error) {
+      console.log("Error saving student:", error);
+    }
 
     for (let i = 0; i < parsedResults.length; i++) {
       console.log("Attempting to add answer...")
