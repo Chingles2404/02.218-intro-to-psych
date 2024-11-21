@@ -6,6 +6,8 @@ export async function addStudent(studentId: number, group: number) {
     VALUES (${studentId}, ${group});
   `
   console.log(`Added entry for student ${studentId} in group ${group}`)
+
+  return (entry);
 }
 
 export async function addPassageAnswers(studentId: number, passageId: number, order: number, question1: number, question2: number, question3: number, question4: number, question5: number) {
