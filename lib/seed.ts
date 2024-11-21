@@ -1,12 +1,13 @@
 import { sql } from '@vercel/postgres'
 
 export async function seed() {
-  const createTable = await sql`
+  const createStudentsTable = await sql`
     CREATE TABLE IF NOT EXISTS Students (
       studentId INT PRIMARY KEY,
       groupId INT NOT NULL
     );
-
+    `
+  const createAnswersTable = await sql`
     CREATE TABLE IF NOT EXISTS Answers (
       studentId INT NOT NULL REFERENCES Students(studentId),
       passageId INT NOT NULL,
@@ -17,12 +18,12 @@ export async function seed() {
       question4 TEXT NOT NULL,
       question5 TEXT NOT NULL,
       PRIMARY KEY (studentId, passageId)
-    );
-    `
+    );`
 
   console.log(`Created "answers" table`)
 
   return {
-    createTable,
+    createStudentsTable,
+    createAnswersTable
   }
 }
