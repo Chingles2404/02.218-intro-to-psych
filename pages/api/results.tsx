@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { addStudent, addPassageAnswers } from "@/lib/populate";
+import { addStudent, addPassageAnswers } from "../../lib/populate";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {

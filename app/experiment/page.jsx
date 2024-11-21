@@ -51,7 +51,7 @@ const Experiment = () => {
         results: JSON.stringify(results),
       };
 
-      const response = await fetch("../../api/results", {
+      const response = await fetch("/api/results", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
