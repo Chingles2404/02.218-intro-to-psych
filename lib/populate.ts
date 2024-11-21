@@ -3,7 +3,7 @@ import { sql } from '@vercel/postgres'
 export async function addStudent(studentId: number, group: number) {
   const entry = await sql`
     INSERT INTO Students
-    VALUES (${studentId}, ${group}});
+    VALUES (${studentId}, ${group});
   `
   console.log(`Added entry for student ${studentId} in group ${group}`)
 }

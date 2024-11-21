@@ -46,8 +46,10 @@ const Experiment = () => {
   if (currentStep >= totalSteps) {
     var groupNo = Number(group.split("-")[1])
     var studentId = Number(participantId)
+    console.log(`To add to Students table: ${studentId}, ${groupNo}`)
     addStudent(studentId, groupNo)
     for (var i = 0; i < results.length; i++) {
+      console.log(`To add to Answers table: ${studentId}, ${results[i]["passage"]}, ${i + 1}, ${results[i]["answers"]["1"]}, ${results[i]["answers"]["2"]}, ${results[i]["answers"]["3"]}, ${results[i]["answers"]["4"]}, ${results[i]["answers"]["5"]}`)
       addPassageAnswers(studentId, results[i]["passage"], i + 1, results[i]["answers"]["1"], results[i]["answers"]["2"], results[i]["answers"]["3"], results[i]["answers"]["4"], results[i]["answers"]["5"])
     }
     return (
