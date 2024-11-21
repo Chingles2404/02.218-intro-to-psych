@@ -26,6 +26,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log("Error saving student:", error);
     }
 
+    console.log(parsedResults.length)
+
     for (let i = 0; i < parsedResults.length; i++) {
       console.log("Attempting to add answer...")
       const { passage, answers } = parsedResults[i];
