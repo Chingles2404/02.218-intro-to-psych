@@ -6,6 +6,7 @@ export default async function Table() {
 
   try {
     data = await sql`SELECT * FROM Students;`
+    console.log(data)
   } catch (e: any) {
     if (e.message.includes('relation "students" does not exist')) {
       console.log(
@@ -14,6 +15,7 @@ export default async function Table() {
       // Table is not created yet
       await seed()
       data = await sql`SELECT * FROM Students;`
+      console.log(data)
     } else {
       throw e
     }
@@ -21,6 +23,7 @@ export default async function Table() {
 
   try {
     data = await sql`SELECT * FROM Answers;`
+    console.log(data)
   } catch (e: any) {
     if (e.message.includes('relation "answers" does not exist')) {
       console.log(
@@ -29,6 +32,7 @@ export default async function Table() {
       // Table is not created yet
       await seed()
       data = await sql`SELECT * FROM Answers;`
+      console.log(data)
     } else {
       throw e
     }
