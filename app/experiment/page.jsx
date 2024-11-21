@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import PassageComponent from "../../components/PassageComponent";
@@ -41,10 +43,35 @@ const Experiment = () => {
     handleNextStep();
   };
 
+  const handleSurveyComplete = async () => {
+    try {
+      const payload = {
+        participantId,
+        group,
+        results: JSON.stringify(results),
+      };
+
+      const response = await fetch("../../api/results", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save results");
+      }
+    } catch (error) {
+      console.error("Error submitting survey:", error);
+    }
+  };
+
   if (currentStep >= totalSteps) {
+    handleSurveyComplete();
     return (
       <div className="p-6 text-center h-screen justify-center align-center">
-        <Result participantId={participantId} group={group} results={JSON.stringify(results, null, 2)} />
+        <Result participantId={participantId} group={group} results={JSON.stringify(results)} />
       </div>
     );
   }
