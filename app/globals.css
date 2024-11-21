@@ -17,3 +17,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@media (prefers-color-scheme: dark) {
+  input[type=text] {
+    color: white;
+  }
+}
