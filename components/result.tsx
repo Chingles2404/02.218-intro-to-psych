@@ -7,7 +7,7 @@ export default async function Result({participantId, group, results}: {participa
     const JSONResults = JSON.parse(results)
 
     console.log(`To add to Students table: ${studentId}, ${groupNo}`);
-    addStudent(studentId, groupNo)
+    await addStudent(studentId, groupNo)
 
     for (var i = 0; i < JSONResults.length; i = i + 1) {
         console.log(
@@ -17,7 +17,7 @@ export default async function Result({participantId, group, results}: {participa
             JSONResults.answers["5"]
         }`
         );
-        addPassageAnswers(
+        await addPassageAnswers(
         studentId,
         JSONResults.passage,
         i + 1,
