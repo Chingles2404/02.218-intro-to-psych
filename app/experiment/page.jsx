@@ -44,8 +44,8 @@ const Experiment = () => {
   };
 
   if (currentStep >= totalSteps) {
-    groupNo = Number(group.split("-")[1])
-    studentId = Number(participantId)
+    var groupNo = Number(group.split("-")[1])
+    var studentId = Number(participantId)
     addStudent(studentId, groupNo)
     for (var i = 0; i < results.length; i++) {
       addPassageAnswers(studentId, results[i]["passage"], i + 1, results[i]["answers"]["1"], results[i]["answers"]["2"], results[i]["answers"]["3"], results[i]["answers"]["4"], results[i]["answers"]["5"])
