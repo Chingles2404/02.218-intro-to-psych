@@ -25,11 +25,11 @@ const Experiment = () => {
 
   useEffect(() => {
     if (currentStep >= totalSteps) {
-      const groupNo = Number(group.split("-")[1]);
+      const groupNo = Number(group?.split("-")[1]);
       const studentId = Number(participantId);
   
       console.log(`To add to Students table: ${studentId}, ${groupNo}`);
-      addStudent(studentId, groupNo);
+      addStudent(studentId, groupNo).catch(console.error);
   
       results.forEach((result, index) => {
         console.log(
@@ -48,10 +48,10 @@ const Experiment = () => {
           result.answers["3"],
           result.answers["4"],
           result.answers["5"]
-        );
+        ).catch(console.error);
       });
     }
-  }, [currentStep, totalSteps, group, participantId, results]);
+  }, [currentStep, totalSteps, group, participantId, results]);  
 
   const totalSteps = shuffledPassages.length * 4;
   const stepType = currentStep % 4;
