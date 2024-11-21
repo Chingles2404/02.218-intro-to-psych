@@ -7,6 +7,7 @@ import QuestionsComponent from "../../components/QuestionComponent";
 import InstructionComponent from "../../components/InstructionComponent";
 import { passages as originalPassages, questions } from "../data";
 import { shuffleArray } from "../utils";
+import { addStudent, addPassageAnswers } from "../../lib/populate"
 
 const Experiment = () => {
   const searchParams = useSearchParams();
@@ -43,6 +44,12 @@ const Experiment = () => {
   };
 
   if (currentStep >= totalSteps) {
+    groupNo = Number(group.split("-")[1])
+    studentId = Number(participantId)
+    addStudent(studentId, groupNo)
+    for (var i = 0; i < results.length; i++) {
+      addPassageAnswers(studentId, results[i]["passage"], i + 1, results[i]["answers"]["1"], results[i]["answers"]["2"], results[i]["answers"]["3"], results[i]["answers"]["4"], results[i]["answers"]["5"])
+    }
     return (
       <div className="p-6 text-center h-screen justify-center align-center">
         <h1 className="text-xl font-bold">Survey Complete!</h1>
