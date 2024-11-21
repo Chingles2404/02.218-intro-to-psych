@@ -23,6 +23,36 @@ const Experiment = () => {
     setShuffledPassages(randomizedPassages);
   }, []);
 
+  useEffect(() => {
+    if (currentStep >= totalSteps) {
+      const groupNo = Number(group.split("-")[1]);
+      const studentId = Number(participantId);
+  
+      console.log(`To add to Students table: ${studentId}, ${groupNo}`);
+      addStudent(studentId, groupNo);
+  
+      results.forEach((result, index) => {
+        console.log(
+          `To add to Answers table: ${studentId}, ${result.passage}, ${index + 1}, ${
+            result.answers["1"]
+          }, ${result.answers["2"]}, ${result.answers["3"]}, ${result.answers["4"]}, ${
+            result.answers["5"]
+          }`
+        );
+        addPassageAnswers(
+          studentId,
+          result.passage,
+          index + 1,
+          result.answers["1"],
+          result.answers["2"],
+          result.answers["3"],
+          result.answers["4"],
+          result.answers["5"]
+        );
+      });
+    }
+  }, [currentStep, totalSteps, group, participantId, results]);
+
   const totalSteps = shuffledPassages.length * 4;
   const stepType = currentStep % 4;
   const currentPassageIndex = Math.floor(currentStep / 4);
@@ -44,14 +74,6 @@ const Experiment = () => {
   };
 
   if (currentStep >= totalSteps) {
-    var groupNo = Number(group.split("-")[1])
-    var studentId = Number(participantId)
-    console.log(`To add to Students table: ${studentId}, ${groupNo}`)
-    addStudent(studentId, groupNo)
-    for (var i = 0; i < results.length; i++) {
-      console.log(`To add to Answers table: ${studentId}, ${results[i]["passage"]}, ${i + 1}, ${results[i]["answers"]["1"]}, ${results[i]["answers"]["2"]}, ${results[i]["answers"]["3"]}, ${results[i]["answers"]["4"]}, ${results[i]["answers"]["5"]}`)
-      addPassageAnswers(studentId, results[i]["passage"], i + 1, results[i]["answers"]["1"], results[i]["answers"]["2"], results[i]["answers"]["3"], results[i]["answers"]["4"], results[i]["answers"]["5"])
-    }
     return (
       <div className="p-6 text-center h-screen justify-center align-center">
         <h1 className="text-xl font-bold">Survey Complete!</h1>
