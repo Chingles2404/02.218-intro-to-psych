@@ -71,7 +71,7 @@ const Experiment = () => {
     handleSurveyComplete();
     return (
       <div className="p-6 text-center h-screen justify-center align-center">
-        <Result participantId={participantId} group={group} results={JSON.stringify(results)} />
+        <Result participantId={participantId} group={group} results={results} />
       </div>
     );
   }
