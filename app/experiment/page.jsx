@@ -7,7 +7,7 @@ import QuestionsComponent from "../../components/QuestionComponent";
 import InstructionComponent from "../../components/InstructionComponent";
 import { passages as originalPassages, questions } from "../data";
 import { shuffleArray } from "../utils";
-import { addStudent, addPassageAnswers } from "../../lib/populate"
+import { Result } from "../../components/result"
 
 const Experiment = () => {
   const searchParams = useSearchParams();
@@ -43,55 +43,10 @@ const Experiment = () => {
     handleNextStep();
   };
 
-  useEffect(() => {
-    if (currentStep >= totalSteps) {
-      const groupNo = Number(group.split("-")[1]);
-      const studentId = Number(participantId);
-  
-      console.log(`To add to Students table: ${studentId}, ${groupNo}`);
-      addStudent(studentId, groupNo)
-  
-      results.forEach((result, index) => {
-        console.log(
-          `To add to Answers table: ${studentId}, ${result.passage}, ${index + 1}, ${
-            result.answers["1"]
-          }, ${result.answers["2"]}, ${result.answers["3"]}, ${result.answers["4"]}, ${
-            result.answers["5"]
-          }`
-        );
-        addPassageAnswers(
-          studentId,
-          result.passage,
-          index + 1,
-          result.answers["1"],
-          result.answers["2"],
-          result.answers["3"],
-          result.answers["4"],
-          result.answers["5"]
-        )
-      });
-    }
-  }, [currentStep, totalSteps, group, participantId, results]);  
-
   if (currentStep >= totalSteps) {
     return (
       <div className="p-6 text-center h-screen justify-center align-center">
-        <h1 className="text-xl font-bold">Survey Complete!</h1>
-        <p className="text-gray-700 mt-4">
-          Thank you for participating in the survey.
-        </p>
-        <p className="mt-2">
-          Participant ID: <strong>{participantId}</strong>
-        </p>
-        <p className="mt-2">
-          Group: <strong>{group}</strong>
-        </p>
-        <div className="mt-6 text-left">
-          <h2 className="text-lg font-bold">Your Responses:</h2>
-          <pre className="bg-gray-100 p-4 rounded-md mt-4">
-            {JSON.stringify(results, null, 2)}
-          </pre>
-        </div>
+        <Result participantId={participantId} group={group} results={JSON.stringify(results, null, 2)} />
       </div>
     );
   }
