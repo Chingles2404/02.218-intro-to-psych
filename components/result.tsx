@@ -1,7 +1,7 @@
 import { sql } from '@vercel/postgres'
-import { addStudent, addPassageAnswers } from "../lib/populate"
+import { addStudent, addPassageAnswers } from "@/lib/populate"
 
-export default async function Result(participantId: string, group: string, results: string) {
+export default async function Result({participantId, group, results}: {participantId: string, group: string, results: string}) {
     const groupNo = Number(group.split("-")[1]);
     const studentId = Number(participantId);
     const JSONResults = JSON.parse(results)

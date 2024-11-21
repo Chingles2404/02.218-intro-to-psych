@@ -7,7 +7,7 @@ import QuestionsComponent from "../../components/QuestionComponent";
 import InstructionComponent from "../../components/InstructionComponent";
 import { passages as originalPassages, questions } from "../data";
 import { shuffleArray } from "../utils";
-import { Result } from "../../components/result"
+import Result from "../../components/result"
 
 const Experiment = () => {
   const searchParams = useSearchParams();
