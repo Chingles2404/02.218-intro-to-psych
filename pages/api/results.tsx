@@ -23,6 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await addStudent(studentId, groupNo);
 
     for (let i = 0; i < parsedResults.length; i++) {
+      console.log("Attempting to add answer...")
       const { passage, answers } = parsedResults[i];
       await addPassageAnswers(
         studentId,
