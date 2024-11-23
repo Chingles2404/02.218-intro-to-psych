@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import PassageComponent from "../../components/PassageComponent";
 import QuestionsComponent from "../../components/QuestionComponent";
 import InstructionComponent from "../../components/InstructionComponent";
-import { passages as originalPassages, questions } from "../data";
+import { passages as originalPassages, breatherPassages, questions } from "../data";
 import { shuffleArray } from "../utils";
 import Result from "../../components/result"
 
@@ -20,7 +20,14 @@ const Experiment = () => {
 
   useEffect(() => {
     const randomizedPassages = shuffleArray(originalPassages);
-    setShuffledPassages(randomizedPassages);
+    const randomizedWithBreather = randomizedPassages.slice(0, 3).concat(breatherPassages.slice(0, 1), 
+                                                                         randomizedPassages.slice(3, 5), 
+                                                                         breatherPassages.slice(1, 2),
+                                                                         randomizedPassages.slice(5, 7),
+                                                                         breatherPassages.slice(2),
+                                                                         randomizedPassages.slice(7)
+                                                                        );
+    setShuffledPassages(randomizedWithBreather);
   }, []);
 
   const totalSteps = shuffledPassages.length * 4;

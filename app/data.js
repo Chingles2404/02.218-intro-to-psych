@@ -5,6 +5,19 @@ export const passages = [
   },
   { id: 2, text: "Passage 2 text. Another passage to read." },
   { id: 3, text: "Passage 3 text. Yet another example passage." },
+  { id: 4, text: "Passage 4 text." },
+  { id: 5, text: "Passage 5 text." },
+  { id: 6, text: "Passage 6 text." },
+  { id: 7, text: "Passage 7 text." },
+  { id: 8, text: "Passage 8 text." },
+  { id: 9, text: "Passage 9 text." },
+  { id: 10, text: "Passage 10 text." },
+];
+
+export const breatherPassages = [
+  { id: 11, text: "Breather 1" },
+  { id: 12, text: "Breather 2" },
+  { id: 13, text: "Breather 3" },
 ];
 
 export const questions = [
