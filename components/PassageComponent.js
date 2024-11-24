@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const PassageComponent = ({ passage, onComplete, group }) => {
+const PassageComponent = ({ title, source, passage, onComplete, group }) => {
   const timeLimit = group === "group-1" ? 45 : null;
   const [timeLeft, setTimeLeft] = useState(timeLimit);
 
@@ -35,7 +35,13 @@ const PassageComponent = ({ passage, onComplete, group }) => {
       <div className="max-w-[600px]">
         <h1 className="text-lg font-bold">Read the Passage</h1>
         <div className="p-5 my-5 rounded-md bg-gray-300 w-full">
-          <p>{passage}</p>
+          <p><b><u>{title}</u></b></p>
+          <p><i>Source: {source}<br /><br /></i></p>
+          <p>
+            {passage.split("\n").map((line, index) => (
+              <p key={index}>{line}<br /></p>
+            ))}
+          </p>
         </div>
         {group === "group-2" && (
           <div className="text-center">

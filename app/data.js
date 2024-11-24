@@ -57,7 +57,7 @@ export const breatherPassages = [
     id: 11, 
     title: "Anxiety and Related Disorders",
     source: "David H. Barlow & Kristen K. Ellard (Boston University, Massachusetts General Hospital, Harvard Medical School)",
-    text: "Anxiety is what motivates us to plan for the future, and in this sense, is actually a good thing. It’s that nagging feeling that motivates us to study for that test, practice harder for that game, or be at our very best on that date. But some people experience anxiety so intensely that it is no longer helpful or useful. They become overwhelmed and distracted by anxiety that they fail their test, fumble the ball, or spend the whole date fidgeting and avoiding eye contact. If anxiety begins to interfere in the person’s life in a significant way, it is considered a disorder." 
+    text: "Anxiety is what motivates us to plan for the future, and in this sense, is actually a good thing. It’s that nagging feeling that motivates us to study for that test, practice harder for that game, or be at our very best on that date. But some people experience anxiety so intensely that it is no longer helpful or useful. They become overwhelmed and distracted by anxiety that they fail their test, fumble the ball, or spend the whole date fidgeting and avoiding eye contact. If anxiety begins to interfere in the person’s life in a significant way, it is considered a disorder."
   },
   { 
     id: 12, 

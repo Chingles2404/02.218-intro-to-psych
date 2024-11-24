@@ -98,6 +98,8 @@ const Experiment = () => {
     // Passage
     return (
       <PassageComponent
+        title={shuffledPassages[currentPassageIndex].title}
+        source={shuffledPassages[currentPassageIndex].source}
         passage={shuffledPassages[currentPassageIndex].text}
         group={group}
         onComplete={handleNextStep}
