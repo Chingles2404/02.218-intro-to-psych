@@ -18,7 +18,7 @@ const PassageComponent = ({ title, source, passage, onComplete, group }) => {
   }, [timeLeft, group]);
 
   return (
-    <div className="p-4 h-screen flex items-center justify-center">
+    <div className="p-4 flex items-center justify-center">
       {group === "group-1" && (
         <div
           className="radial-progress fixed top-5 right-5"

@@ -101,7 +101,7 @@ export const questions = [
   {
     id: 3,
     text: "How confident are you in the credibility of the source providing this information?",
-    answer: [
+    answers: [
       "Not Confident At All",
       "Unconfident",
       "Slightly Unconfident",

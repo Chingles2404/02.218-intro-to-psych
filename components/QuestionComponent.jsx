@@ -19,6 +19,7 @@ const QuestionsComponent = ({ questions, onComplete, group }) => {
   useEffect(() => {
     const shuffled = shuffleArray(questions);
     setShuffledQuestions(shuffled);
+    console.log(questions);
     setAnswers(
       shuffled.reduce((acc, question) => {
         acc[question.id] = "";
@@ -82,13 +83,12 @@ const QuestionsComponent = ({ questions, onComplete, group }) => {
                 <p className="font-medium mb-4">{`${index + 1}. ${
                   question.text
                 }`}</p>
-                <div className="flex space-x-9">
-                  {likertScale.map((option, optIndex) => (
+                <div className="flex flex-col space-y-4">
+                  {question.answers.map((option, optIndex) => (
                     <label
                       key={optIndex}
-                      className="flex flex-col items-center space-y-2 text-center"
+                      className="flex items-center space-x-4"
                     >
-                      <span className="text-sm">{option}</span>
                       <input
                         type="radio"
                         name={`question-${question.id}`}
@@ -97,6 +97,7 @@ const QuestionsComponent = ({ questions, onComplete, group }) => {
                         onChange={() => handleAnswerChange(question.id, option)}
                         className="radio radio-primary"
                       />
+                      <span className="text-sm">{option}</span>
                     </label>
                   ))}
                 </div>

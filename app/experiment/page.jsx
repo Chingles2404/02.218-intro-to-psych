@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import PassageComponent from "../../components/PassageComponent";
 import QuestionsComponent from "../../components/QuestionComponent";
 import InstructionComponent from "../../components/InstructionComponent";
-import { passages as originalPassages, breatherPassages, questions } from "../data";
+import { passages as originalPassages, breatherPassages, questions, comprehensionQuestions } from "../data";
 import { shuffleArray } from "../utils";
 import Result from "../../components/result"
 
@@ -88,7 +88,7 @@ const Experiment = () => {
     return (
       <InstructionComponent
         text={`Please read the following passage carefully. ${
-          group === "group-1" ? "You will have 2 minutes to read." : ""
+          group === "group-1" ? "You will have 45 seconds to read." : ""
         }`}
         buttonLabel="Start Passage"
         onStart={handleNextStep}
@@ -111,7 +111,7 @@ const Experiment = () => {
       <InstructionComponent
         text={`Please answer the following questions based on the passage you just read. ${
           group === "group-1"
-            ? "You will have 2 minutes to answer the questions."
+            ? "You will have 45 seconds to answer the questions."
             : ""
         }`}
         buttonLabel="Start Questions"
@@ -122,7 +122,7 @@ const Experiment = () => {
     // Questions
     return (
       <QuestionsComponent
-        questions={questions}
+        questions={questions.concat(comprehensionQuestions[shuffledPassages[currentPassageIndex].id])}
         onComplete={handleQuestionsComplete}
         group={group}
       />
