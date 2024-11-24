@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const PassageComponent = ({ passage, onComplete, group }) => {
-  const timeLimit = 5; // 2 mins
+  const timeLimit = group === "group-1" ? 45 : null;
   const [timeLeft, setTimeLeft] = useState(timeLimit);
 
   useEffect(() => {
@@ -19,24 +19,21 @@ const PassageComponent = ({ passage, onComplete, group }) => {
 
   return (
     <div className="p-4 h-screen flex items-center justify-center">
-      <div className="max-w-[600px]">
-        {" "}
-        <div className="flex flex-row justify-between items-end">
-          <h1 className="text-lg font-bold">Read the Passage</h1>
-          {group === "group-1" && (
-            <div
-              className="radial-progress"
-              style={{
-                "--value": (timeLeft / timeLimit) * 100,
-                "--size": "4rem",
-                "--thickness": "0.5rem",
-              }}
-              role="progressbar"
-            >
-              {timeLeft}s
-            </div>
-          )}
+      {group === "group-1" && (
+        <div
+          className="radial-progress fixed top-5 right-5"
+          style={{
+            "--value": (timeLeft / timeLimit) * 100,
+            "--size": "4rem",
+            "--thickness": "0.5rem",
+          }}
+          role="progressbar"
+        >
+          {timeLeft}s
         </div>
+      )}
+      <div className="max-w-[600px]">
+        <h1 className="text-lg font-bold">Read the Passage</h1>
         <div className="p-5 my-5 rounded-md bg-gray-300 w-full">
           <p>{passage}</p>
         </div>
