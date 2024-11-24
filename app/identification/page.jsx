@@ -13,7 +13,9 @@ const Identification = () => {
       return;
     }
     setError("");
-    router.push(`/experiment?participantId=${participantId}&group=${group}`);
+    router.push(
+      `/${group}-instructions?participantId=${participantId}&group=${group}`
+    );
   };
 
   return (
