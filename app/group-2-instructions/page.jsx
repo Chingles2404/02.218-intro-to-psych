@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const GroupTwoInstructions = () => {
+const GroupOneInstructions = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -28,16 +28,13 @@ const GroupTwoInstructions = () => {
         <p className="font-bold">Test Instructions</p>
         <ol className="list-decimal list-outside ml-4">
           <li>
-            You will be completing this test on a laptop. 13 passages will be
-            presented to you one at a time.
+            You will be completing this test on a laptop under untimed
+            conditions.
           </li>
           <li>
-            For each passage, you will be given{" "}
-            <span className="font-bold text-red-500 underline">45 seconds</span>{" "}
-            to read it. You will then be given another{" "}
-            <span className="font-bold text-red-500 underline">45 seconds</span>{" "}
-            to answer a set of 5 questions that follow, related to the passage
-            you have just read.
+            13 passages will be presented to you one at a time. After each
+            passage, you will be given a set of 5 questions to answer, related
+            to the passage you have just read.
           </li>
           <li>
             You{" "}
@@ -46,11 +43,8 @@ const GroupTwoInstructions = () => {
             of the passage or change your responses to any of the 5 questions,
             so please{" "}
             <span className="font-bold text-red-500 underline">
-              be mindful of the on-screen timer
-            </span>{" "}
-            and{" "}
-            <span className="font-bold text-red-500 underline">
-              answer all 5 questions within the stipulated time
+              answer all 5 questions from the current passage before moving on
+              to the next passage
             </span>
             .
           </li>
@@ -102,4 +96,4 @@ const GroupTwoInstructions = () => {
   );
 };
 
-export default GroupTwoInstructions;
+export default GroupOneInstructions;
