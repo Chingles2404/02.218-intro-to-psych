@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const GroupTwoInstructions = () => {
+const GroupOneInstructions = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -102,4 +102,4 @@ const GroupTwoInstructions = () => {
   );
 };
 
-export default GroupTwoInstructions;
+export default GroupOneInstructions;
