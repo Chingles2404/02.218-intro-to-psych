@@ -34,7 +34,13 @@ const PassageComponent = ({ title, source, passage, currentPassageIndex, onCompl
       )}
       <div className="max-w-[600px]">
         <h1 className="text-lg font-bold">Read the Passage</h1>
-        <h2 className="text-lg font-bold">Passage {currentPassageIndex + 1} / 13</h2>
+        {
+          currentPassageIndex == 0 ? (
+            <h2 className="text-lg font-bold">Sample Passage</h2>
+          ) : (
+            <h2 className="text-lg font-bold">Passage {currentPassageIndex} / 13</h2>
+          )
+        }
         <div className="p-5 my-5 rounded-md bg-gray-300 w-full">
           <p><b><u>{title}</u></b></p>
           <p><i>Source: {source}<br /><br /></i></p>
