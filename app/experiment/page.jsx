@@ -111,6 +111,7 @@ const Experiment = () => {
         title={shuffledPassages[currentPassageIndex].title}
         source={shuffledPassages[currentPassageIndex].source}
         passage={shuffledPassages[currentPassageIndex].text}
+        currentPassageIndex={currentPassageIndex}
         group={group}
         onComplete={handleNextStep}
       />

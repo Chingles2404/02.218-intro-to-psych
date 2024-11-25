@@ -9,11 +9,12 @@ const QuestionsComponent = ({ questions, onComplete, group }) => {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
   const likertScale = [
-    "Strongly Disagree",
-    "Disagree",
-    "Neutral",
-    "Agree",
-    "Strongly Agree",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
   ];
 
   useEffect(() => {
@@ -84,22 +85,47 @@ const QuestionsComponent = ({ questions, onComplete, group }) => {
                   question.text
                 }`}</p>
                 <div className="flex flex-col space-y-4">
-                  {question.answers.map((option, optIndex) => (
-                    <label
-                      key={optIndex}
-                      className="flex items-center space-x-4"
-                    >
-                      <input
-                        type="radio"
-                        name={`question-${question.id}`}
-                        value={option}
-                        checked={answers[question.id] === option}
-                        onChange={() => handleAnswerChange(question.id, option)}
-                        className="radio radio-primary"
-                      />
-                      <span className="text-sm">{option}</span>
-                    </label>
-                  ))}
+                  {
+                    question.id < 4 ? (
+                      <div className="flex space-x-4">
+                        <div className="text-sm mt-1">{question.answers[0]}</div>
+                        {likertScale.map((option, optIndex) => (
+                          <label
+                            key={optIndex}
+                            className="flex flex-col items-center space-y-2 text-center"
+                          >
+                            <input
+                              type="radio"
+                              name={`question-${question.id}`}
+                              value={option}
+                              checked={answers[question.id] === option}
+                              onChange={() => handleAnswerChange(question.id, option)}
+                              className="radio radio-primary"
+                            />
+                            <span className="text-sm mt-1">{option}</span>
+                          </label>
+                        ))}
+                        <div className="text-sm mt-1">{question.answers[1]}</div>
+                      </div>
+                    ) : (
+                      question.answers.map((option, optIndex) => (
+                        <label
+                          key={optIndex}
+                          className="flex items-center space-x-4"
+                        >
+                          <input
+                            type="radio"
+                            name={`question-${question.id}`}
+                            value={option}
+                            checked={answers[question.id] === option}
+                            onChange={() => handleAnswerChange(question.id, option)}
+                            className="radio radio-primary"
+                          />
+                          <span className="text-sm">{option}</span>
+                        </label>
+                      ))
+                    )
+                  }
                 </div>
               </div>
             ))}

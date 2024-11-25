@@ -107,10 +107,6 @@ export const questions = [
     text: "How accurate do you believe the information is?",
     answers: [
       "Very Inaccurate",
-      "Inaccurate",
-      "Slightly Inaccurate",
-      "Slightly Accurate",
-      "Accurate",
       "Very Accurate",
     ],
   },
@@ -119,10 +115,6 @@ export const questions = [
     text: "How biased or unbiased do you find the information?",
     answers: [
       "Very Biased",
-      "Biased",
-      "Slightly Biased",
-      "Slightly Unbiased",
-      "Unbiased",
       "Very Unbiased",
     ],
   },
@@ -131,10 +123,6 @@ export const questions = [
     text: "How confident are you in the credibility of the source providing this information?",
     answers: [
       "Not Confident At All",
-      "Unconfident",
-      "Slightly Unconfident",
-      "Slightly Confident",
-      "Confident",
       "Very Confident",
     ],
   },

@@ -22,12 +22,6 @@ const Result: React.FC<ResultProps> = ({ participantId, group, results }) => {
         <p className="mt-2">
             Group: <strong>{group}</strong>
         </p>
-        <div className="mt-6 text-left">
-            <h2 className="text-lg font-bold">Your Responses:</h2>
-            <pre className="bg-gray-100 p-4 rounded-md mt-4">
-                {JSON.stringify(results, null, 2)}
-            </pre>
-        </div>
     </div>
   );
 };

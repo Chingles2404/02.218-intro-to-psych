@@ -12,11 +12,11 @@ const Start = () => {
     <div className="h-screen flex items-center justify-center text-center">
       <div className="max-w-[600px] flex flex-col">
         <h1 className="text-xl font-bold mb-2">
-          Welcome to our experiment for 02.218 Intro to Psychology project
+          Welcome to our experiment for 02.218 Intro to Psychology
         </h1>
         <p>Thank you for participating in our experiment!</p>
         <p>
-          Before we begin the experiment, please submit the content form{" "}
+          Before we begin the experiment, please submit the consent form{" "}
           <a
             className="underline text-[#0EA5E9]"
             href="https://forms.gle/XYc1nh3o94MxSmY66"
