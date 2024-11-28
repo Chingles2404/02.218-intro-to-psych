@@ -35,7 +35,7 @@ const GroupOneInstructions = () => {
             For each passage, you will be given{" "}
             <span className="font-bold text-red-500 underline">45 seconds</span>{" "}
             to read it. You will then be given another{" "}
-            <span className="font-bold text-red-500 underline">45 seconds</span>{" "}
+            <span className="font-bold text-red-500 underline">25 seconds</span>{" "}
             to answer a set of 5 questions that follow, related to the passage
             you have just read.
           </li>
