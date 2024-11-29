@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { shuffleArray } from "../app/utils";
 
 const QuestionsComponent = ({ questions, onComplete, group }) => {
-  const timeLimit = group === "group-1" ? 25 : null;
+  const timeLimit = group === "group-1" ? 45 : null;
   const [timeLeft, setTimeLeft] = useState(timeLimit);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [answers, setAnswers] = useState({});

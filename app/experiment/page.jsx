@@ -122,7 +122,7 @@ const Experiment = () => {
       <InstructionComponent
         text={`Please answer the following questions based on the passage you just read. ${
           group === "group-1"
-            ? "You will have 25 seconds to answer the questions."
+            ? "You will have 45 seconds to answer the questions."
             : ""
         }`}
         buttonLabel="Start Questions"
